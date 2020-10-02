@@ -88,8 +88,10 @@ const reserveSpot = async () => {
 };
 
 const onError = async (err) => {
-    await page.screenshot({ path: `${process.env.HOME}/wodify-signer-error.png` });
-    console.error(err);
+    const errorScreenshotPath = `${process.env.HOME}/wodify-signer-error.png`;
+
+    await page.screenshot({ path: errorScreenshotPath });
+    console.error(`(${errorScreenshotPath}): ${err}`);
 };
 
 openWodify()
